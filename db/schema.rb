@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_10_222130) do
+ActiveRecord::Schema.define(version: 2023_01_11_170708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,11 @@ ActiveRecord::Schema.define(version: 2023_01_10_222130) do
     t.float "current_stock"
     t.float "minimum_stock"
     t.string "notes"
-    t.bigint "category_id", null: false
     t.bigint "retailer_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
+    t.string "category"
     t.index ["retailer_id"], name: "index_items_on_retailer_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -43,7 +42,6 @@ ActiveRecord::Schema.define(version: 2023_01_10_222130) do
     t.string "image_url"
     t.string "website"
     t.string "phone"
-    t.string "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -58,7 +56,6 @@ ActiveRecord::Schema.define(version: 2023_01_10_222130) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "items", "categories"
   add_foreign_key "items", "retailers"
   add_foreign_key "items", "users"
 end
