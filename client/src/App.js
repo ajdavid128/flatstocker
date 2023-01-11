@@ -23,29 +23,29 @@ function App() {
   const [errors, setErrors] = useState([])
 
   // STAY LOGGED IN:
-  useEffect(() =>{
-    fetch("/me")
-    .then(res=> {
-      if(res.ok){
-        res.json()
-        .then(user => {
-          setCurrentUser(user)
-          console.log(user)
-        })
-      }
-    });
-  }, []);
+  // useEffect(() =>{
+  //   fetch("/me")
+  //   .then(res=> {
+  //     if(res.ok){
+  //       res.json()
+  //       .then(user => {
+  //         setCurrentUser(user)
+  //         console.log(user)
+  //       })
+  //     }
+  //   });
+  // }, []);
 
   // LOGOUT:
   const handleLogOut = () => {
-    fetch("/logout", {
-      method: "DELETE"
-    })
-    .then(res => {
-      if(res.ok) {
-        setCurrentUser(null)
-      }
-    });
+    // fetch("/logout", {
+    //   method: "DELETE"
+    // })
+    // .then(res => {
+    //   if(res.ok) {
+    //     setCurrentUser(null)
+    //   }
+    // });
   };
 
 
@@ -55,7 +55,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <NavBar 
-              onClick={handleLogOut}
+              handleLogOut={handleLogOut}
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
               errors={errors}
