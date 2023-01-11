@@ -39,7 +39,7 @@ function SignupForm({errors, setErrors, setCurrentUser}) {
     };
 
     const handleChange = (e) => {
-        const key = e.target.key;
+        const key = e.target.name;
         const value = e.target.value;
 
         setNewUser({

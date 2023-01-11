@@ -3,9 +3,11 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 
 
-function LandingPage({errors, setErrors, setCurrentUser}) {
+function LandingPage({errors, setErrors, currentUser, setCurrentUser}) {
     return (
         <div>
+            <h1>LANDING PAGE</h1>
+            <h1>LOGIN</h1>
             <Container>
                 <LoginForm 
                     setCurrentUser={setCurrentUser}
@@ -14,6 +16,7 @@ function LandingPage({errors, setErrors, setCurrentUser}) {
                 />
             </Container>
 
+            <h1>SIGN UP</h1>
             <Container>
                 <SignupForm 
                     setCurrentUser={setCurrentUser}
