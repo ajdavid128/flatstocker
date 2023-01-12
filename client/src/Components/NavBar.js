@@ -8,7 +8,7 @@ function NavBar({handleLogOut, currentUser, setCurrentUser, errors, setErrors}) 
     
     return (
         <>
-            <Menu vertical>
+            <Menu>
                 <Menu.Item>
                     Home
                     <Menu.Menu>
