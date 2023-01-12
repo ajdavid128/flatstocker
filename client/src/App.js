@@ -77,7 +77,7 @@ function App() {
             <Route path="form/new/retailer" element={<RetailerForm/>}/>
             <Route path="login" element={<LoginForm/>}/>
             <Route path="signup" element={<SignupForm/>}/>
-            <Route path="settings" element={<UserPreferences/>}/>
+            <Route path="preferences" element={<UserPreferences/>}/>
             <Route path="*" element={<NotFound/>}/>
             
             {/* <h1>HERE I AM</h1>

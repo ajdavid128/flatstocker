@@ -1,4 +1,4 @@
-import { Menu } from "semantic-ui-react";
+import { Dropdown, Menu } from "semantic-ui-react";
 import { Outlet, Link } from "react-router-dom";
 
 
@@ -9,62 +9,46 @@ function NavBar({handleLogOut, currentUser, setCurrentUser, errors, setErrors}) 
     return (
         <>
             <Menu>
-                <Menu.Item>
-                    Home
-                    <Menu.Menu>
-                        <Link to="/dashboard">
-                            <Menu.Item
-                                name="Dashboard"
-                            />
-                        </Link>
-                    </Menu.Menu>
-                </Menu.Item>
-                <Menu.Item>
-                    Inventory
-                    <Menu.Menu>
+                <Link to="/dashboard">
+                    <Menu.Item name="Dashboard"/>
+                </Link>    
+                <Dropdown item text="Inventory">
+                    <Dropdown.Menu>
                         <Link to="/inventory">
-                            <Menu.Item
-                                name="All Inventory"
-                            />
+                            <Dropdown.Item>All Inventory</Dropdown.Item>
                         </Link>
                         <Link to="/inventory/itemized">
-                            <Menu.Item
-                                name="Itemized Inventory"
-                            />
+                            <Dropdown.Item>Itemized Inventory</Dropdown.Item>
                         </Link>
                         <Link to="/form/new/inventory">
-                            <Menu.Item
-                                name="Add Inventory"
-                            />
+                            <Dropdown.Item>Add Inventory</Dropdown.Item>
                         </Link>
-                    </Menu.Menu>
-                </Menu.Item>
-                <Menu.Item>
-                    Retailers
-                    <Menu.Menu>
-                        <Menu.Item
-                            name="All Retailers"
-                        />
-                        <Menu.Item
-                            name="Add Retailer"
-                        />
-                    </Menu.Menu>
-                </Menu.Item>
-                <Menu.Item>
-                    Settings
-                    <Menu.Menu>
-                        <Menu.Item
-                            name="User Preferences"
-                        />
-                        <Menu.Item
-                            name="Logout"
-                            onClick={handleLogOut}
-                        />
-                    </Menu.Menu>
-                </Menu.Item>
-                <Menu.Item>
-                    About
-                </Menu.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown item text="Retailers">
+                    <Dropdown.Menu>
+                        <Link to="/retailers">
+                            <Dropdown.Item>All Retailers</Dropdown.Item>
+                        </Link>
+                        <Link to="form/new/retailer">
+                            <Dropdown.Item>Add Retailer</Dropdown.Item>
+                        </Link>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Menu.Menu position="right">
+                    <Dropdown item text="Settings">
+                        <Dropdown.Menu>
+                            <Link to="/preferences">
+                                <Dropdown.Item>User Preferences</Dropdown.Item>
+                            </Link>
+                            <Link to="/about">
+                                <Dropdown.Item>About Flatstocker</Dropdown.Item>
+                            </Link>
+                            {/* use Navigate to redirect the logout to the login page */}
+                            <Dropdown.Item onClick={handleLogOut}>Logout</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Menu.Menu>
             </Menu>
             <Outlet />
         </>
