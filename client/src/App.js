@@ -15,6 +15,7 @@ import SignupForm from './Components/SignupForm';
 import UserPreferences from './Components/UserPreferences';
 import LoginForm from './Components/LoginForm';
 import NotFound from './Components/NotFound';
+import PleaseLogin from './Components/PleaseLogin';
 
 
 function App() {
@@ -23,51 +24,50 @@ function App() {
   const [errors, setErrors] = useState([])
 
   // STAY LOGGED IN:
-  // useEffect(() =>{
-  //   fetch("/me")
-  //   .then(res=> {
-  //     if(res.ok){
-  //       res.json()
-  //       .then(user => {
-  //         setCurrentUser(user)
-  //         console.log(user)
-  //       })
-  //     }
-  //   });
-  // }, []);
+  useEffect(() =>{
+    fetch("/me")
+    .then(res=> {
+      if(res.ok){
+        res.json()
+        .then(user => {
+          setCurrentUser(user)
+          // console.log(user)
+        })
+      }
+    });
+  }, []);
 
-  // LOGOUT:
-  const handleLogOut = () => {
-    // fetch("/logout", {
-    //   method: "DELETE"
-    // })
-    // .then(res => {
-    //   if(res.ok) {
-    //     setCurrentUser(null)
-    //   }
-    // });
-  };
+  
 
 
   return (
     <BrowserRouter>
       <div>
         <Routes>
-          <Route path="/" element={
-            <NavBar 
-              handleLogOut={handleLogOut}
-              currentUser={currentUser}
-              setCurrentUser={setCurrentUser}
-              errors={errors}
-              setErrors={setErrors}
-            />}>
-            <Route index element={
+        <Route index element={
               <LandingPage 
                 currentUser={currentUser}
                 setCurrentUser={setCurrentUser}
                 errors={errors}
                 setErrors={setErrors}
               />}/>
+        <Route path="signup" element={
+              <SignupForm
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+                errors={errors}
+                setErrors={setErrors}
+              />
+            }/>
+        {currentUser && currentUser ? <>
+          <Route path="/" element={
+            <NavBar 
+              currentUser={currentUser}
+              setCurrentUser={setCurrentUser}
+              errors={errors}
+              setErrors={setErrors}
+            />
+          }>
             <Route path="about" element={<About/>}/>
             <Route path="dashboard" element={<Dashboard/>}/>
             <Route path="inventory" element={<Inventory/>}/>
@@ -76,14 +76,11 @@ function App() {
             <Route path="retailers" element={<Retailers/>}/>
             <Route path="form/new/retailer" element={<RetailerForm/>}/>
             <Route path="login" element={<LoginForm/>}/>
-            <Route path="signup" element={<SignupForm/>}/>
-            <Route path="settings" element={<UserPreferences/>}/>
-            <Route path="*" element={<NotFound/>}/>
-            
-            {/* <h1>HERE I AM</h1>
-            <Button onClick={handleLogOut}>LOGOUT</Button> */}
-            
+            <Route path="preferences" element={<UserPreferences/>}/>
+            <Route path="*" element={<NotFound/>}/> 
           </Route>
+          </> : 
+            <Route path="/nope" element={<PleaseLogin/>}/> }
         </Routes>
       </div>
     </BrowserRouter>

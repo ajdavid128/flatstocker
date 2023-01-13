@@ -1,7 +1,10 @@
 import { Container, Form, Input, Button } from 'semantic-ui-react';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function LoginForm({errors, setErrors, setCurrentUser}) {
+
+    let navigate = useNavigate();
 
     const [user, setUser] = useState({
         username: "",
@@ -28,6 +31,7 @@ function LoginForm({errors, setErrors, setCurrentUser}) {
             if(res.ok){
                 res.json().then(user => {
                     setCurrentUser(user);
+                    navigate("/dashboard");
                 })
             } else {
                 res.json().then(data =>{
