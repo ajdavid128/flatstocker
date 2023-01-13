@@ -1,4 +1,5 @@
-import { Container } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import { Button, Container } from "semantic-ui-react";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 
@@ -18,11 +19,16 @@ function LandingPage({errors, setErrors, currentUser, setCurrentUser}) {
 
             <h1>SIGN UP</h1>
             <Container>
-                <SignupForm 
-                    setCurrentUser={setCurrentUser}
-                    errors={errors}
-                    setErrors={setErrors}
-                />
+                <Link to="/signup">
+                    <Button>Signup!</Button>
+                </Link>
+            </Container>
+
+            <h1>About</h1>
+            <Container>
+                <Link to="/about">
+                    <Button>About Flatstocker</Button>
+                </Link>
             </Container>
         </div>
     )

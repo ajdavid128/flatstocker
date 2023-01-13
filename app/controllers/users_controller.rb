@@ -15,9 +15,9 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end
 
-    def update
-        user = User.find(params[:id])
-    end
+    # def update
+    #     user = User.find(params[:id])
+    # end
 
     #CREATE /signup
     def create
