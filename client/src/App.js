@@ -22,11 +22,12 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState(null)
   const [errors, setErrors] = useState([])
+  const [inventory, setInventory] = useState([])
 
   // STAY LOGGED IN:
-  useEffect(() =>{
+  useEffect(() => {
     fetch("/me")
-    .then(res=> {
+    .then(res => {
       if(res.ok){
         res.json()
         .then(user => {
@@ -36,6 +37,16 @@ function App() {
       }
     });
   }, []);
+
+  useEffect(()=>{
+    fetch("/items")
+    .then(res => {
+      if(res.ok){
+        res.json()
+        .then(setInventory)
+      }
+    })
+  }, [currentUser])
 
   
 
@@ -70,7 +81,7 @@ function App() {
           }>
             <Route path="about" element={<About/>}/>
             <Route path="dashboard" element={<Dashboard/>}/>
-            <Route path="inventory" element={<Inventory/>}/>
+            <Route path="inventory" element={<Inventory inventory={inventory}/>}/>
             <Route path="inventory/itemized" element={<ItemizedInventory/>}/>
             <Route path="form/new/inventory" element={<InventoryForm/>}/>
             <Route path="retailers" element={<Retailers/>}/>

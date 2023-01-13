@@ -1,6 +1,9 @@
 
 
-function Inventory() {
+function Inventory({inventory}) {
+
+    
+
     return (
         <div>
             <h1>INVENTORY PAGE</h1>
