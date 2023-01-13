@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_13_172557) do
+ActiveRecord::Schema.define(version: 2023_01_13_181243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2023_01_13_172557) do
     t.string "brand"
     t.string "color"
     t.string "unit_type"
+    t.float "unit_amount"
     t.index ["retailer_id"], name: "index_items_on_retailer_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end

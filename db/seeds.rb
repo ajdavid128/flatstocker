@@ -43,11 +43,51 @@ r17 = Retailer.create(retailer_name: "Action Engineering", phone: "1(770)717-100
 puts "Done with that Retailer nonsense."
 puts "About to seed some Items..."
 
-Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Black", category: "Ink", unit_type: "gallon (gal)", image_url: "https://images.ctfassets.net/f1fikihmjtrp/5XS7e1URCKitGm73cVxOSF/482b2d827d518e39548410443b946b9e/43229-2029-M-4ww.jpg?q=80&w=250", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: , user_id: )
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Black", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://images.ctfassets.net/f1fikihmjtrp/5XS7e1URCKitGm73cVxOSF/482b2d827d518e39548410443b946b9e/43229-2029-M-4ww.jpg?q=80&w=250", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
 
-Item.create(item_name: "", brand: "", color: "", category: "", unit_type: "", image_url: "", current_stock: , minimum_stock: , notes: "", item_url: "", retailer_id: , user_id: )
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "white", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://images.ctfassets.net/f1fikihmjtrp/3J8AZHrf4oPlZNqpB0E2jY/8d1a6e79cc75f8634f0b9e919b782bf4/43229-1029-M-4ww.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
 
-Item.create(item_name: "", brand: "", color: "", category: "", unit_type: "", image_url: "", current_stock: , minimum_stock: , notes: "", item_url: "", retailer_id: , user_id: )
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Medium Red", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://images.ctfassets.net/f1fikihmjtrp/1fKy8FPqfk2CsEhGR8VvzC/33564420d880f0cb7ce73cfdaa949343/43229-3039-M-4ww.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Dark Red", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://cdn.shoplightspeed.com/shops/635126/files/43740175/image.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Orange", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://cdn.shoplightspeed.com/shops/635126/files/43740042/image.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Medium Yellow", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://images.ctfassets.net/f1fikihmjtrp/4WOOyi2DskdcIVKlsFe5Lg/5943adfc8547bd34535999193c1066ef/43229-4029-M-4ww.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Primrose Yellow", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://cdn.shoplightspeed.com/shops/635126/files/43740140/image.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Emerald Green", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://images.ctfassets.net/f1fikihmjtrp/4K7nV1MfPaSl7KDnpAPJFU/ae6d2ce96889f605e25bbc58cfb93757/43229-7059-M-4ww.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Peacock Blue", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://cdn.shoplightspeed.com/shops/635126/files/43740135/image.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Ultra Blue", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://cdn.shoplightspeed.com/shops/635126/files/43775604/768x768x3/speedball-speedball-acrylic-screen-printing-ink-ga.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1) 
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Dark Blue", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Violet", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Process Cyan", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Process Magenta", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://cdn.shoplightspeed.com/shops/635126/files/43740175/image.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Process Yellow", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Gold", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Silver", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "https://creativecoldsnow.com/wp-content/uploads/product_images/product-104931-1607632327-SPB4689.jpg", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Brown", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Night Glo", category: "Ink", unit_amount: 1, unit_type: "gallon (gal)", image_url: "", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.dickblick.com/products/speedball-permanent-acrylic-screen-printing-ink/", retailer_id: r1.id, user_id: 1)
+
+Item.create(item_name: "Acrylic Screen Printing Ink", brand: "Speedball", color: "Fluorescent Hot Pink", category: "Ink", unit_amount: 32, unit_type: "ounce (oz)", image_url: "", current_stock: 2, minimum_stock: 1, notes: "", item_url: "https://www.amazon.com/speedball-046414-acrylic-printing-fluorescent/dp/B00T07FNLA?tag=namespacebran246-20&keywords=fluorescent%2Bpink%2Bspeedball&th=1", retailer_id: r2.id, user_id: 1)
+
+
+
+Item.create(item_name: "", brand: "", color: "", category: "", unit_type: "", image_url: "", current_stock: , minimum_stock: , notes: "", item_url: "", retailer_id: , user_id: 1)
+
+Item.create(item_name: "", brand: "", color: "", category: "", unit_type: "", image_url: "", current_stock: , minimum_stock: , notes: "", item_url: "", retailer_id: , user_id: 1)
 
 
 
