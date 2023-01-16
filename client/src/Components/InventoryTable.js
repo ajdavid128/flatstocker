@@ -7,19 +7,19 @@ function InventoryTable({item_name, image_url, current_stock, minimum_stock, not
 
     return (
         <>
-        <Table.Body>
-            <Table.Row>
-                <Table.Cell>{brand}: {item_name}</Table.Cell>
-                <Table.Cell>{color}</Table.Cell>
-                <Table.Cell>{current_stock} {unit_type}</Table.Cell>
-                <Table.Cell>{minimum_stock} {unit_type}</Table.Cell>
-                <Table.Cell>{category}</Table.Cell>
-                <Table.Cell>{updated_at}</Table.Cell>
-                <Table.Cell> Make custom method to aquire retailer name from its id</Table.Cell>
-                <Table.Cell><a href={item_url}>reorder here</a></Table.Cell>
-                <Table.Cell>{notes}</Table.Cell>
-            </Table.Row>
-        </Table.Body>
+            <Table.Body>
+                <Table.Row>
+                    <Table.Cell>{brand}: {item_name}</Table.Cell>
+                    <Table.Cell>{color}</Table.Cell>
+                    <Table.Cell>{current_stock} {unit_type}</Table.Cell>
+                    <Table.Cell>{minimum_stock} {unit_type}</Table.Cell>
+                    <Table.Cell>{category}</Table.Cell>
+                    <Table.Cell>{updated_at}</Table.Cell>
+                    <Table.Cell> Make custom method to aquire retailer name from its id</Table.Cell>
+                    <Table.Cell><a href={item_url}>reorder here</a></Table.Cell>
+                    <Table.Cell>{notes}</Table.Cell>
+                </Table.Row>
+            </Table.Body>
         </>
     )
 };
