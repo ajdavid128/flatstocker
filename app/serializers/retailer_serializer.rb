@@ -1,3 +1,3 @@
 class RetailerSerializer < ActiveModel::Serializer
-  attributes :id, :name, :address, :image_url, :website, :phone, :notes
+  attributes :id, :retailer_name, :website_url, :phone, :email
 end

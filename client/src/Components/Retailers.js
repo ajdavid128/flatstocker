@@ -1,9 +1,17 @@
+import RetailerCard from './RetailerCard';
+
+function Retailers({retailers}) {
+
+    const retailerArray = retailers.map((eachRetailer) => {
+        return <RetailerCard key={eachRetailer.id} {...eachRetailer}/>
+    })
 
 
-function Retailers() {
     return (
-        <div>
-            <h1>RETAILER PAGE</h1>
+        <div id="center-retailer-cards">
+            <div id="retail-cards">
+                {retailerArray}
+            </div>
         </div>
     )
 };

@@ -23,6 +23,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const [errors, setErrors] = useState([])
   const [inventory, setInventory] = useState([])
+  const [retailers, setRetailers] = useState([])
 
   // STAY LOGGED IN:
   useEffect(() => {
@@ -38,6 +39,7 @@ function App() {
     });
   }, []);
 
+// FETCH INVENTORY FOR USER
   useEffect(()=>{
     fetch("/items")
     .then(res => {
@@ -48,6 +50,18 @@ function App() {
     })
   }, [currentUser])
 
+  // console.log(inventory)
+
+  // FETCH RETAILERS 
+  useEffect(()=>{
+    fetch("/retailers")
+    .then(res => {
+      if(res.ok){
+        res.json()
+        .then(setRetailers)
+      }
+    })
+  }, [])
   
 
 
@@ -84,7 +98,10 @@ function App() {
             <Route path="inventory" element={<Inventory inventory={inventory}/>}/>
             <Route path="inventory/itemized" element={<ItemizedInventory/>}/>
             <Route path="form/new/inventory" element={<InventoryForm/>}/>
-            <Route path="retailers" element={<Retailers/>}/>
+            <Route path="retailers" element={
+              <Retailers
+                retailers={retailers}
+              />}/>
             <Route path="form/new/retailer" element={<RetailerForm/>}/>
             <Route path="login" element={<LoginForm/>}/>
             <Route path="preferences" element={<UserPreferences/>}/>

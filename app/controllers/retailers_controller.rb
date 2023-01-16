@@ -1,7 +1,8 @@
 class RetailersController < ApplicationController
 
     def index
-        render json: Retailer.all, status: :ok
+        retailers = Retailer.all.order(:retailer_name)
+        render json: retailers, status: :ok
     end
     
 end

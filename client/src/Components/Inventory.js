@@ -2,7 +2,8 @@
 
 function Inventory({inventory}) {
 
-    
+    console.log(inventory);
+
 
     return (
         <div>

@@ -16,3 +16,14 @@ code {
   display: flex;
   justify-content: center;
 }
+
+#center-retailer-cards {
+  display: flex;
+  justify-content: center;
+}
+
+#retail-cards { 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
