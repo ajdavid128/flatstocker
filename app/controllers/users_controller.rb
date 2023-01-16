@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
     skip_before_action :authorized, only: [:create, :index]
 
+    #GET /users
     def index
         render json: User.all, status: :ok
     end
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
         render json: user, status: :ok
     end
 
+    #PATCH /users/:id
     def update
         user = User.find(params[:id])
         user.update!(update_email)
@@ -28,10 +30,10 @@ class UsersController < ApplicationController
         render json: user, status: :created
     end
 
+    #DELETE /users/:id
     def destroy
         User.find(params[:id]).destroy
         head :no_content
-        #render unauthorized?
     end
 
     private
