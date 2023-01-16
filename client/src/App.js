@@ -20,10 +20,11 @@ import PleaseLogin from './Components/PleaseLogin';
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useState(null)
-  const [errors, setErrors] = useState([])
-  const [inventory, setInventory] = useState([])
-  const [retailers, setRetailers] = useState([])
+  const [currentUser, setCurrentUser] = useState(null);
+  const [errors, setErrors] = useState([]);
+  const [inventory, setInventory] = useState([]);
+  const [retailers, setRetailers] = useState([]);
+  const [updateEmail, setUpdateEmail] = useState([]);
 
   // STAY LOGGED IN:
   useEffect(() => {
@@ -104,7 +105,14 @@ function App() {
               />}/>
             <Route path="form/new/retailer" element={<RetailerForm/>}/>
             <Route path="login" element={<LoginForm/>}/>
-            <Route path="preferences" element={<UserPreferences/>}/>
+            <Route path="preferences" element={
+              <UserPreferences 
+                currentUser={currentUser}
+                updateEmail={updateEmail}
+                setUpdateEmail={setUpdateEmail}
+                errors={errors}
+                setErrors={setErrors}
+              />}/>
             <Route path="*" element={<NotFound/>}/> 
           </Route>
           </> : 

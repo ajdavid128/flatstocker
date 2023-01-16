@@ -1,8 +1,11 @@
 class RetailersController < ApplicationController
 
     def index
-        retailers = Retailer.all.order(:retailer_name)
+        # "alpha_order" is a Custom Class Method for organizing Retailers in alphabetical order
+        retailers = Retailer.alpha_order
         render json: retailers, status: :ok
     end
+
+    
     
 end

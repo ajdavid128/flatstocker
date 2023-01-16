@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :items
+    has_many :items, dependent: :destroy
     has_many :retailers, through: :items
     # has_many :categories, through: :items
 
