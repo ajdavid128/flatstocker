@@ -1,6 +1,11 @@
+import InventoryCard from "./InventoryCard";
 
+function ItemizedInventory({inventory}) {
 
-function ItemizedInventory() {
+    const inventoryArray = inventory.map((eachInv) => {
+        return <InventoryCard key={eachInv.id} {...eachInv}/>
+    })
+
     return (
         <div>
             <h1>ITEMIZED INVENTORY PAGE</h1>

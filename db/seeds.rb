@@ -10,7 +10,7 @@ r1 = Retailer.create(retailer_name: "Blick", phone: "1(800)828-4548", email: "or
 
 r2 = Retailer.create(retailer_name: "Amazon", phone: "", email: "", website_url: "https://www.amazon.com/")
 
-r3 = Retailer.create(retailer_name: "ScreenPrinting", phone: "1(360)576-7188", email: "", website_url: "https://www.screenprinting.com/")
+r3 = Retailer.create(retailer_name: "Ryonet/Screenprinting.com", phone: "1(360)576-7188", email: "", website_url: "https://www.screenprinting.com/")
 
 r4 = Retailer.create(retailer_name: "Nazdar", phone: "(888)578-5713", email: "Orders@Nazdar.com", website_url: "https://sourceone.nazdar.com/")
 

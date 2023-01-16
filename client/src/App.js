@@ -96,7 +96,7 @@ function App() {
             <Route path="about" element={<About/>}/>
             <Route path="dashboard" element={<Dashboard/>}/>
             <Route path="inventory" element={<Inventory inventory={inventory}/>}/>
-            <Route path="inventory/itemized" element={<ItemizedInventory/>}/>
+            <Route path="inventory/itemized" element={<ItemizedInventory inventory={inventory}/>}/>
             <Route path="form/new/inventory" element={<InventoryForm/>}/>
             <Route path="retailers" element={
               <Retailers
