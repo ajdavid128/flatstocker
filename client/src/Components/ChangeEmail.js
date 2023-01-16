@@ -1,6 +1,5 @@
 import { Container, Form, Input } from "semantic-ui-react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 
 function ChangeEmail({currentUser, setUpdateEmail, updateEmail, errors, setErrors}) {
 
@@ -37,7 +36,7 @@ function ChangeEmail({currentUser, setUpdateEmail, updateEmail, errors, setError
         setNewEmail({
             ...newEmail, [e.target.name]: e.target.value
         })
-        console.log(e.target.value)
+        // console.log(e.target.value)
     }
 
 

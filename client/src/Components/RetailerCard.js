@@ -9,7 +9,7 @@ function RetailerCard({retailer_name, website_url, phone, email}) {
                 <Card>
                     <Card.Content>
                         <Card.Header>{retailer_name}</Card.Header>
-                        <Card.Meta><a href={website_url}>website</a></Card.Meta>
+                        <Card.Meta><a href={website_url} target="_blank" rel="noopener noreferrer">website</a></Card.Meta>
                         <Card.Description>phone: {phone}</Card.Description>
                         <Card.Description>email: {email}</Card.Description>
                     </Card.Content>
