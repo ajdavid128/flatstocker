@@ -49,7 +49,7 @@ function ChangeEmail({currentUser, setUpdateEmail, updateEmail, errors, setError
                         control={Input}
                         id="email"
                         name="email"
-                        placeholder="Enter new email address"
+                        placeholder="new_email@example.com"
                         value={newEmail.email}
                         onChange={handleEmailChange}
                     />

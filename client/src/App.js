@@ -108,6 +108,7 @@ function App() {
             <Route path="preferences" element={
               <UserPreferences 
                 currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
                 updateEmail={updateEmail}
                 setUpdateEmail={setUpdateEmail}
                 errors={errors}
