@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
   resources :items, only: [:index, :create, :update, :destroy]
   resources :retailers, only: [:index]
-  # resources :categories, only: [:index]
   resources :users
 
   post '/signup', to: 'users#create'

@@ -49,7 +49,7 @@ function App() {
         .then(setInventory)
       }
     })
-  }, [currentUser])
+  }, [])
 
   // console.log(inventory)
 
@@ -62,7 +62,7 @@ function App() {
         .then(setRetailers)
       }
     })
-  }, [])
+  }, [currentUser])
   
 
 

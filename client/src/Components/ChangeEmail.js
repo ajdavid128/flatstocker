@@ -22,12 +22,12 @@ function ChangeEmail({currentUser, setUpdateEmail, updateEmail, errors, setError
         .then(res => {
             if(res.ok){
                 res.json()
-                .then(data => {setUpdateEmail([...currentUser.email, data])});
-                setNewEmail({email: ""})
-                console.log(currentUser.email)
+                .then(data => {setUpdateEmail([...currentUser, data])});
+                // console.log(currentUser.email)
             } else {
-                res.json().then(console.log("whoops"))
+                res.json().then(data => setErrors(data.errors))
             }
+        setNewEmail({email: ""})
         })
     }
 
@@ -54,6 +54,7 @@ function ChangeEmail({currentUser, setUpdateEmail, updateEmail, errors, setError
                     />
                     <Form.Button>Submit New Email</Form.Button>
                 </Form>
+                <p>{errors}</p>
             </Container>
         </div>
     )

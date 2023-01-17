@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_13_181243) do
+ActiveRecord::Schema.define(version: 2023_01_10_222130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "categories", force: :cascade do |t|
-    t.string "type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "items", force: :cascade do |t|
     t.string "item_name"
@@ -27,27 +21,27 @@ ActiveRecord::Schema.define(version: 2023_01_13_181243) do
     t.float "current_stock"
     t.float "minimum_stock"
     t.string "notes"
-    t.bigint "retailer_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "category"
     t.string "item_url"
     t.string "brand"
     t.string "color"
     t.string "unit_type"
     t.float "unit_amount"
+    t.bigint "retailer_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["retailer_id"], name: "index_items_on_retailer_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "retailers", force: :cascade do |t|
+    t.string "retailer_name"
+    t.string "website_url"
     t.string "phone"
+    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
-    t.string "website_url"
-    t.string "retailer_name"
   end
 
   create_table "users", force: :cascade do |t|

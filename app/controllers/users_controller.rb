@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    #wrap_parameters format: []
+    wrap_parameters format: []
     # ^information: https://api.rubyonrails.org/v6.0.2.2/classes/ActionController/ParamsWrapper.html
 
     skip_before_action :authorized, only: [:create, :index]
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
     #PATCH /users/:id
     def update
+        byebug
         user = User.find(params[:id])
         user.update!(update_email)
         render json: user, status: :accepted

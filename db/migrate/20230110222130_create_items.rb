@@ -6,7 +6,12 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.float :current_stock
       t.float :minimum_stock
       t.string :notes
-      t.belongs_to :category, null: false, foreign_key: true
+      t.string :category
+      t.string :item_url
+      t.string :brand
+      t.string :color
+      t.string :unit_type
+      t.float :unit_amount
       t.belongs_to :retailer, null: false, foreign_key: true
       t.belongs_to :user, null: false, foreign_key: true
 
