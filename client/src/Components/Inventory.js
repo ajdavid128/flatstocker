@@ -14,7 +14,7 @@ function Inventory({inventory}) {
     return (
         <div>
             <h1>INVENTORY PAGE</h1>
-            <div>
+            
                 <Container>
                     <Table celled selectable>
                         <Table.Header>
@@ -30,10 +30,10 @@ function Inventory({inventory}) {
                                 <Table.HeaderCell>Notes</Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
-                    </Table>
-                    {inventoryArray}
+                        {inventoryArray}
+                    </Table> 
                 </Container>
-            </div>
+           
         </div>
     )
 };

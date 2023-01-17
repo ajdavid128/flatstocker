@@ -48,7 +48,7 @@ function App() {
         .then(setInventory)
       }
     })
-  }, [])
+  }, [currentUser])
 
   // console.log(inventory)
 
