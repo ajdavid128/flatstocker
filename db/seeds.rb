@@ -3,7 +3,7 @@ puts "DESTROYING ALL THE ITEMS AND RETAILERS"
 Item.destroy_all
 Retailer.destroy_all
 
-puts "DONE DESTROYING THE WORLD... I mean items and retailers..."
+puts "DONE DESTROYING THE WORLD..."
 puts "Seeding you some Retailers, boi..."
 
 r1 = Retailer.create(retailer_name: "Blick", phone: "1(800)828-4548", email: "orders@dickblick.com", website_url: "https://www.dickblick.com/")

@@ -3,8 +3,7 @@ class ItemsController < ApplicationController
     skip_before_action :authorized, only: [:create, :index, :destroy]
 
     def index
-        user = find_user
-        items = user.items
+        items = Item.where(:user_id == params[:user_id])
         render json: items, status: :ok
     end
 

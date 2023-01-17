@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
-  belongs_to :Retailer
-  belongs_to :User
+  belongs_to :retailer
+  belongs_to :user
+
 end
