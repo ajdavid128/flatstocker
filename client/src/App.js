@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { Button } from 'semantic-ui-react';
 
 import NavBar from './Components/NavBar';
 import About from './Components/About';
@@ -38,7 +37,7 @@ function App() {
         })
       }
     });
-  }, []);
+  }, [updateEmail]);
 
 // FETCH INVENTORY FOR USER
   useEffect(()=>{

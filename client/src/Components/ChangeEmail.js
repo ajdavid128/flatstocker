@@ -4,7 +4,9 @@ import { useState } from "react";
 function ChangeEmail({currentUser, setUpdateEmail, updateEmail, errors, setErrors}) {
 
     const [newEmail, setNewEmail] = useState({
-        email: ""
+        email: "",
+        password: "",
+        password_confirmation: ""
     });
 
     console.log(newEmail)
@@ -22,19 +24,25 @@ function ChangeEmail({currentUser, setUpdateEmail, updateEmail, errors, setError
         .then(res => {
             if(res.ok){
                 res.json()
-                .then(data => {setUpdateEmail([...currentUser, data])});
-                // console.log(currentUser.email)
+                .then(data => {setUpdateEmail([{...currentUser}, data])});
             } else {
                 res.json().then(data => setErrors(data.errors))
             }
-        setNewEmail({email: ""})
+        setNewEmail({
+            email: "",
+            password: "",
+            password_confirmation: ""
+        })
         })
     }
 
     // UPDATES EMAIL IN STATE
     const handleEmailChange = (e) => {
+        const key = e.target.name;
+        const value = e.target.value;
+
         setNewEmail({
-            ...newEmail, [e.target.name]: e.target.value
+            ...newEmail, [key]: value
         })
         // console.log(e.target.value)
     }
@@ -52,9 +60,27 @@ function ChangeEmail({currentUser, setUpdateEmail, updateEmail, errors, setError
                         value={newEmail.email}
                         onChange={handleEmailChange}
                     />
+                    <Form.Field 
+                        control={Input}
+                        label="Password:"
+                        type="password"
+                        name="password"
+                        value={newEmail.password}
+                        onChange={handleEmailChange}
+                    />
+                    <Form.Field 
+                        control={Input}
+                        label="Password Confirmation:"
+                        type="password"
+                        name="password_confirmation"
+                        value={newEmail.password_confirmation}
+                        onChange={handleEmailChange}
+                    />
                     <Form.Button>Submit New Email</Form.Button>
                 </Form>
-                <p>{errors}</p>
+                <div>
+                    {errors? errors.map(e => { return <p key={e}>{e}</p>}) : null}
+                </div>
             </Container>
         </div>
     )

@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     #PATCH /users/:id
     def update
-        byebug
+        # byebug
         user = User.find(params[:id])
         user.update!(update_email)
         render json: user, status: :accepted
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     end
 
     def update_email
-        params.permit(:id, :email)
+        params.permit(:id, :email, :password, :password_confirmation)
     end
 
 end
