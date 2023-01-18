@@ -1,7 +1,7 @@
 import { Container, Divider, Form, Input, Segment, Select, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 
-function InventoryForm({retailers}) {
+function InventoryForm({retailers, setInventory, errors, setErrors}) {
 
 let navigate = useNavigate();
 
@@ -89,7 +89,9 @@ let navigate = useNavigate();
                                 <option value='gal'>gallons (gal)</option>
                             </Form.Field>
                         </Form.Group>
-                        <Form.TextArea label='Notes about item:' placeholder='Order by the case...' />
+                        <Form.TextArea 
+                            label='Notes about item or special ordering details:' placeholder='Order by the case...'
+                        />
                         <Form.Field label='Retailer:' control='select' onChange={handleChange}>
                                 <option value=''>select</option>
                                 {handleRetailers}
