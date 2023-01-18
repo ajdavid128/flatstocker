@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+    wrap_parameters format: []
     skip_before_action :authorized, only: [:create, :index, :destroy]
 
     def index
@@ -11,7 +12,10 @@ class ItemsController < ApplicationController
 
     def create
         params[:user_id] = session[:user_id]
-        item = Item.create!(item_params, user_id: params[:user_id])
+        item = Item.create!(
+            item_params, 
+            user_id: params[:user_id]
+            )
         render json: item, status: :created
     end
 
@@ -22,7 +26,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-        params.permit(:item_name, :image_url, :current_stock, :minimum_stock, :notes, :category, :item_url, :brand, :color, :unit_type, :unit_amount, :retailer_id)
+        params.permit(:item_name, :image_url, :current_stock, :minimum_stock, :notes, :category, :item_url, :brand, :color, :unit_type, :retailer_id, :user_id)
     end
     
 end

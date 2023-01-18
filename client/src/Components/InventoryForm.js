@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function InventoryForm({retailers, setInventory, errors, setErrors}) {
+    
+    let navigate = useNavigate();
 
     const [newItem, setNewItem] = useState({
         item_name: "",
@@ -18,7 +20,8 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
         image_url: ""
     });
 
-    let navigate = useNavigate();
+    console.log(newItem)
+    
 
     const handleRetailers = retailers.map((r) => {
         return (
@@ -28,13 +31,50 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
         )
     });
 
-    const handleChange = (e) => {
-
-    };
 
     const handleSubmitNewItem = (e) => {
-
+        fetch("/items", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newItem)
+        })
+        .then(res => {
+            if(res.ok){
+                res.json().then(data => {
+                    setInventory(data);
+                    navigate("/inventory");
+                })
+            } else {
+                res.json().then(data => setErrors(data.errors));
+            }
+        })
+        setNewItem({
+            item_name: "",
+            brand: "",
+            color: "",
+            category: "",
+            current_stock: 0,
+            minimum_stock: 0,
+            unit_type: "",
+            notes: "",
+            retailer_id: 0,
+            item_url: "",
+            image_url: ""
+        });
     };
+
+
+    const handleChange = (e) => {
+        const key = e.target.name;
+        const value = e.target.value;
+
+        setNewItem({
+            ...newItem, [key]: value
+        })
+        console.log(e.target.value)
+    };
+    
+
 
     return (
         <div>
@@ -65,8 +105,8 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
                             <Form.Input 
                                 control={Input}
                                 label="Color:"
-                                type=""
-                                name=""
+                                type="text"
+                                name="color"
                                 placeholder="Black"
                                 value={newItem.color}
                                 onChange={handleChange}
@@ -74,8 +114,8 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
                              <Form.Input 
                                 control={Input}
                                 label="Category:"
-                                type=""
-                                name=""
+                                type="text"
+                                name="category"
                                 placeholder="Ink"
                                 value={newItem.category}
                                 onChange={handleChange}
@@ -86,8 +126,8 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
                                 control={Input}
                                 label="Current Stock:"
                                 type="number"
-                                name=""
-                                placeholder=""
+                                name="current_stock"
+                                // placeholder=""
                                 value={newItem.current_stock}
                                 onChange={handleChange}
                             />
@@ -95,8 +135,8 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
                                 control={Input}
                                 label="Minimum Stock:"
                                 type="number"
-                                name=""
-                                placeholder=""
+                                name="minimum_stock"
+                                // placeholder=""
                                 value={newItem.minimum_stock}
                                 onChange={handleChange}
                             />
@@ -153,6 +193,9 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
                                 onChange={handleChange}
                             />
                         </Form.Group>
+                        <div>
+                            {errors? errors.map(e => { return <p key={e}>{e}</p>}) : null}
+                        </div>
                         <Form.Button>Submit</Form.Button>
                     </Form>
                 </Segment>
