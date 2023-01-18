@@ -9,7 +9,7 @@ function ChangeEmail({currentUser, setUpdateEmail, updateEmail, errors, setError
         password_confirmation: ""
     });
 
-    console.log(newEmail)
+    // console.log(newEmail)
 
     // SENDS PATCH REQUEST FOR EMAIL UPDATE
     const handleEmailSubmit = (e) => {

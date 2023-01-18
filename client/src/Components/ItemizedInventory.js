@@ -1,4 +1,4 @@
-import { Container } from "semantic-ui-react";
+import { Card, Container } from "semantic-ui-react";
 import InventoryCard from "./InventoryCard";
 
 function ItemizedInventory({inventory}) {
@@ -11,7 +11,9 @@ function ItemizedInventory({inventory}) {
         <div>
             <h1>ITEMIZED INVENTORY PAGE</h1>
             <Container>
-                {inventoryArray}
+                <Card.Group>
+                    {inventoryArray}
+                </Card.Group>
             </Container>
         </div>
     )

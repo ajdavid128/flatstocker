@@ -79,9 +79,14 @@ function UserPreferences({errors, setErrors, currentUser, setCurrentUser, setUpd
                 </Segment.Group>
                 <Segment.Group>
                     <Segment>Change Email Address</Segment>
-                    <Segment><Button onClick={handleChangeEmailForm}>{!buttonText ? "Change Email" : "Hide Form"}</Button>
-                    <br/>
-                    {displayEmailForm ? <Segment>Please enter new email address:<ChangeEmail currentUser={currentUser} updateEmail={updateEmail} setUpdateEmail={setUpdateEmail} errors={errors} setErrors={setErrors}/></Segment> : null}
+                    <Segment>
+                        <Button onClick={handleChangeEmailForm}>{!buttonText ? "Change Email" : "Hide Form"}
+                        </Button>
+                        <br/>
+                        {displayEmailForm ? 
+                            <Segment>Please enter new email address:<ChangeEmail currentUser={currentUser} updateEmail={updateEmail} setUpdateEmail={setUpdateEmail} errors={errors} setErrors={setErrors}/>
+                            </Segment> : 
+                                null}
                     </Segment>
                 </Segment.Group>
                 <Segment.Group>
