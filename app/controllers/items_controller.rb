@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
         params[:user_id] = session[:user_id]
         item = Item.create!(
             item_params, 
-            user_id: params[:user_id]
+            # user_id: params[:user_id]
             )
         render json: item, status: :created
     end
