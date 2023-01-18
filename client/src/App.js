@@ -24,6 +24,7 @@ function App() {
   const [inventory, setInventory] = useState([]);
   const [retailers, setRetailers] = useState([]);
   const [updateEmail, setUpdateEmail] = useState([]);
+  
 
   // STAY LOGGED IN:
   useEffect(() => {

@@ -1,9 +1,24 @@
 import { Container, Divider, Form, Input, Segment, Select, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function InventoryForm({retailers, setInventory, errors, setErrors}) {
 
-let navigate = useNavigate();
+    const [newItem, setNewItem] = useState({
+        item_name: "",
+        brand: "",
+        color: "",
+        category: "",
+        current_stock: 0,
+        minimum_stock: 0,
+        unit_type: "",
+        notes: "",
+        retailer_id: 0,
+        item_url: "",
+        image_url: ""
+    });
+
+    let navigate = useNavigate();
 
     const handleRetailers = retailers.map((r) => {
         return (
@@ -17,6 +32,9 @@ let navigate = useNavigate();
 
     };
 
+    const handleSubmitNewItem = (e) => {
+
+    };
 
     return (
         <div>
@@ -24,24 +42,24 @@ let navigate = useNavigate();
             <Container>
                 <Segment size="huge"><b>Add Item to Inventory:</b>
                 <Divider></Divider>
-                    <Form>
+                    <Form onSubmit={handleSubmitNewItem}>
                         <Form.Group>
                             <Form.Input 
                                 control={Input}
                                 label="Item Name:"
-                                type=""
-                                name=""
-                                placeholder=""
-                                value=""
+                                type="text"
+                                name="item_name"
+                                placeholder="Acrylic Screen Print Ink"
+                                value={newItem.item_name}
                                 onChange={handleChange}
                             />
                             <Form.Input 
                                 control={Input}
                                 label="Brand:"
-                                type=""
-                                name=""
-                                placeholder=""
-                                value=""
+                                type="text"
+                                name="brand"
+                                placeholder="Speedball"
+                                value={newItem.brand}
                                 onChange={handleChange}
                             />
                             <Form.Input 
@@ -50,7 +68,7 @@ let navigate = useNavigate();
                                 type=""
                                 name=""
                                 placeholder="Black"
-                                value=""
+                                value={newItem.color}
                                 onChange={handleChange}
                             />
                              <Form.Input 
@@ -59,7 +77,7 @@ let navigate = useNavigate();
                                 type=""
                                 name=""
                                 placeholder="Ink"
-                                value=""
+                                value={newItem.category}
                                 onChange={handleChange}
                             />
                         </Form.Group>
@@ -67,22 +85,28 @@ let navigate = useNavigate();
                         <Form.Input 
                                 control={Input}
                                 label="Current Stock:"
-                                type=""
+                                type="number"
                                 name=""
                                 placeholder=""
-                                value=""
+                                value={newItem.current_stock}
                                 onChange={handleChange}
                             />
                             <Form.Input 
                                 control={Input}
                                 label="Minimum Stock:"
-                                type=""
+                                type="number"
                                 name=""
                                 placeholder=""
-                                value=""
+                                value={newItem.minimum_stock}
                                 onChange={handleChange}
                             />
-                            <Form.Field label='Unit Type:' control='select' onChange={handleChange}>
+                            <Form.Field                                 
+                                control='select' 
+                                label='Unit Type:'
+                                name="unit_type" 
+                                value={newItem.unit_type}
+                                onChange={handleChange}                                
+                            >
                                 <option value=''>select</option>
                                 <option value='oz'>ounces (oz)</option>
                                 <option value='qt'>quarts (qt)</option>
@@ -90,30 +114,42 @@ let navigate = useNavigate();
                             </Form.Field>
                         </Form.Group>
                         <Form.TextArea 
-                            label='Notes about item or special ordering details:' placeholder='Order by the case...'
+                            label='Notes about item or special ordering details:' 
+                            type="text"
+                            name="notes"
+                            placeholder='Order multiple gallons at a time...'
+                            value={newItem.notes}
+                            onChange={handleChange}
                         />
-                        <Form.Field label='Retailer:' control='select' onChange={handleChange}>
-                                <option value=''>select</option>
-                                {handleRetailers}
+                        <Form.Field                            
+                            control='select'
+                            label='Retailer:' 
+                            name="retailer_id" 
+                            value={newItem.retailer_id} 
+                            onChange={handleChange} 
+                            
+                        >
+                            <option value=''>select</option>
+                            {handleRetailers}
                         </Form.Field>
                         <p >Is your Retailer not listed? <u onClick={()=> {navigate('/form/new/retailer');}}>Click here to add a new one.</u></p>
                         <Form.Group>
                             <Form.Input 
                                 control={Input}
                                 label="Item URL:"
-                                type=""
-                                name=""
-                                placeholder=""
-                                value=""
+                                type="url"
+                                name="item_url"
+                                placeholder="https://screenprinting..."
+                                value={newItem.item_url}
                                 onChange={handleChange}
                             />
                             <Form.Input 
                                 control={Input}
                                 label="Image URL:"
-                                type=""
-                                name=""
-                                placeholder=""
-                                value=""
+                                type="url"
+                                name="image_url"
+                                placeholder="https://screenprinting..."
+                                value={newItem.image_url}
                                 onChange={handleChange}
                             />
                         </Form.Group>
