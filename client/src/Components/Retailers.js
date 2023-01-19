@@ -1,8 +1,8 @@
 import RetailerCard from './RetailerCard';
 
-function Retailers({retailers}) {
+function Retailers({currentUser, retailers}) {
 
-    const retailerArray = retailers.map((eachRetailer) => {
+    const retailerArray = currentUser.unique_retailers.map((eachRetailer) => {
         return <RetailerCard key={eachRetailer.id} {...eachRetailer}/>
     })
 

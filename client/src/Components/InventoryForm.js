@@ -2,14 +2,14 @@ import { Container, Divider, Form, Input, Segment, Select, Button } from "semant
 import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
 
-function InventoryForm({newItem, setNewItem, retailers, setInventory, errors, setErrors, setRerender}) {
+function InventoryForm({newItem, setNewItem, retailers, setInventory, errors, setErrors, setRerender, currentUser}) {
     
     let navigate = useNavigate();
 
     // console.log(newItem)
     
 
-    const handleRetailers = retailers.map((r) => {
+    const handleRetailers = currentUser.unique_retailers.map((r) => {
         return (
             <option key={r.id} value={r.id} >
                 {r.retailer_name}

@@ -114,6 +114,7 @@ function App() {
             <Route path="inventory/itemized" element={<ItemizedInventory inventory={inventory}/>}/>
             <Route path="form/new/inventory" element={
               <InventoryForm 
+                currentUser={currentUser}
                 setRerender={setRerender}
                 newItem={newItem}
                 setNewItem={setNewItem}
@@ -124,6 +125,7 @@ function App() {
               />}/>
             <Route path="retailers" element={
               <Retailers
+                currentUser={currentUser}
                 retailers={retailers}
               />}/>
             <Route path="form/new/retailer" element={<RetailerForm/>}/>
