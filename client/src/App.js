@@ -24,6 +24,7 @@ function App() {
   const [inventory, setInventory] = useState([]);
   const [retailers, setRetailers] = useState([]);
   const [updateEmail, setUpdateEmail] = useState([]);
+  const [updateInventory, setUpdateInventory] = useState([]);
   const [rerender, setRerender] = useState([]);
   const [newRetailer, setNewRetailer] = useState({
     retailer_name: "",
@@ -76,7 +77,7 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
         .then(setInventory)
       }
     })
-  }, [currentUser, rerender])
+  }, [currentUser, rerender, updateInventory])
 
   // console.log(inventory)
 
@@ -128,6 +129,9 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
               <ItemizedInventory 
                 inventory={itemizedFilterArray}
                 setSearchItemized={setSearchItemized}
+                updateInventory={updateInventory}
+                setUpdateInventory={setUpdateInventory}
+                setRerender={setRerender}
             />}/>
             <Route path="form/new/inventory" element={
               <InventoryForm 

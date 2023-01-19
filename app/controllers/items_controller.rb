@@ -12,11 +12,21 @@ class ItemsController < ApplicationController
 
     def create
         params[:user_id] = session[:user_id]
-        item = Item.create!(
-            item_params, 
-            # user_id: params[:user_id]
-            )
+        item = Item.create!(item_params)
         render json: item, status: :created
+    end
+
+    def update
+        item = Item.find(params[:id])
+        item.update(params[:current_stock])
+        render json: item, status: :accepted
+    end
+
+    def destroy
+        item = Item.find(params[:id])
+        item.destroy
+        render json: item, status: :ok
+        # head :no_content
     end
 
     private
@@ -28,5 +38,9 @@ class ItemsController < ApplicationController
     def item_params
         params.permit(:item_name, :image_url, :current_stock, :minimum_stock, :notes, :category, :item_url, :brand, :color, :unit_type, :retailer_id, :user_id)
     end
+
+    # def update_current_stock
+    #     params.permit()
+    # end
     
 end

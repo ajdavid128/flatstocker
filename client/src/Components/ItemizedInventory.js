@@ -1,10 +1,16 @@
 import { Card, Container, Input } from "semantic-ui-react";
 import InventoryCard from "./InventoryCard";
 
-function ItemizedInventory({inventory, setSearchItemized}) {
+function ItemizedInventory({inventory, setSearchItemized, updateInventory, setUpdateInventory, setRerender}) {
 
     const inventoryArray = inventory.map((eachInv) => {
-        return <InventoryCard key={eachInv.id} {...eachInv}/>
+        return <InventoryCard 
+            key={eachInv.id} 
+            {...eachInv} 
+            updateInventory={updateInventory}
+            setUpdateInventory={setUpdateInventory}
+            setRerender={setRerender}
+            />
     })
 
     const handleChange = (e) => {
