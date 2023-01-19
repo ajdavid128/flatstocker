@@ -8,8 +8,9 @@ function InventoryForm({newItem, setNewItem, retailers, setInventory, errors, se
 
     // console.log(newItem)
     
+    // "currentUser.unique_retailers" <- use this in place of "retailers" to map over if I want to only display which retailers a user already utilizes with their inventory
 
-    const handleRetailers = currentUser.unique_retailers.map((r) => {
+    const handleRetailers = retailers.map((r) => {
         return (
             <option key={r.id} value={r.id} >
                 {r.retailer_name}

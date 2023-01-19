@@ -1,4 +1,4 @@
-import { Container, Form } from "semantic-ui-react";
+import { Container, Form, Segment } from "semantic-ui-react";
 
 
 function RetailerForm() {
@@ -6,9 +6,11 @@ function RetailerForm() {
         <div>
             <h1>RETAILER FORM PAGE</h1>
             <Container>
-                <Form>
-                    
-                </Form>
+                <Segment>
+                    <Form>
+
+                    </Form>
+                </Segment>
             </Container>
         </div>
     )
