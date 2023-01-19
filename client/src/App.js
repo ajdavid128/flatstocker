@@ -25,6 +25,13 @@ function App() {
   const [retailers, setRetailers] = useState([]);
   const [updateEmail, setUpdateEmail] = useState([]);
   const [rerender, setRerender] = useState([]);
+  const [newRetailer, setNewRetailer] = useState({
+    retailer_name: "",
+    website_url: "",
+    phone: "",
+    email: ""
+  });
+
   const [newItem, setNewItem] = useState({
     item_name: "",
     brand: "",
@@ -37,6 +44,12 @@ function App() {
     retailer_id: 0,
     item_url: "",
     image_url: ""
+});
+
+const [searchItemized, setSearchItemized] = useState("");
+
+const itemizedFilterArray = inventory.filter((eachInv) => {
+  return eachInv.item_name.toLowerCase().includes(searchItemized.toLowerCase()) || eachInv.brand.toLowerCase().includes(searchItemized.toLowerCase()) || eachInv.retailer.retailer_name.toLowerCase().includes(searchItemized.toLowerCase())
 });
   
 
@@ -63,7 +76,7 @@ function App() {
         .then(setInventory)
       }
     })
-  }, [currentUser, newItem, rerender])
+  }, [currentUser, rerender])
 
   // console.log(inventory)
 
@@ -76,7 +89,7 @@ function App() {
         .then(setRetailers)
       }
     })
-  }, [currentUser])
+  }, [currentUser, newItem, rerender])
   
 
 
@@ -111,7 +124,11 @@ function App() {
             <Route path="about" element={<About/>}/>
             <Route path="dashboard" element={<Dashboard/>}/>
             <Route path="inventory" element={<Inventory inventory={inventory}/>}/>
-            <Route path="inventory/itemized" element={<ItemizedInventory inventory={inventory}/>}/>
+            <Route path="inventory/itemized" element={
+              <ItemizedInventory 
+                inventory={itemizedFilterArray}
+                setSearchItemized={setSearchItemized}
+            />}/>
             <Route path="form/new/inventory" element={
               <InventoryForm 
                 currentUser={currentUser}
@@ -128,7 +145,15 @@ function App() {
                 currentUser={currentUser}
                 retailers={retailers}
               />}/>
-            <Route path="form/new/retailer" element={<RetailerForm/>}/>
+            <Route path="form/new/retailer" element={
+              <RetailerForm
+                setRerender={setRerender}
+                setRetailers={setRetailers}
+                newRetailer={newRetailer}
+                setNewRetailer={setNewRetailer}
+                errors={errors}
+                setErrors={setErrors}
+              />}/>
             <Route path="login" element={<LoginForm/>}/>
             <Route path="preferences" element={
               <UserPreferences 

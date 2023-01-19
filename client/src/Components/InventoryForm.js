@@ -20,6 +20,7 @@ function InventoryForm({newItem, setNewItem, retailers, setInventory, errors, se
 
 
     const handleSubmitNewItem = (e) => {
+        e.preventDefault();
         fetch("/items", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -58,7 +59,7 @@ function InventoryForm({newItem, setNewItem, retailers, setInventory, errors, se
 
         setNewItem({
             ...newItem, [key]: value
-        })
+        });
         // console.log(e.target.value)
     };
     

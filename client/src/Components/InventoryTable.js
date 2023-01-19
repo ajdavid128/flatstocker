@@ -18,7 +18,7 @@ function InventoryTable({item_name, image_url, current_stock, minimum_stock, not
                 <Table.Cell>{updated_date}</Table.Cell>
                 <Table.Cell>{retailer.retailer_name}</Table.Cell>
                 <Table.Cell><a href={item_url} target="_blank" rel="noopener noreferrer">reorder here</a></Table.Cell>
-                <Table.Cell>{notes}</Table.Cell>
+                {/* <Table.Cell>{notes}</Table.Cell> */}
             </Table.Row>
         </Table.Body>
         </>

@@ -29,7 +29,7 @@ function Inventory({inventory}) {
                                 <Table.HeaderCell>Updated On</Table.HeaderCell>
                                 <Table.HeaderCell>Retailer</Table.HeaderCell>
                                 <Table.HeaderCell>URL</Table.HeaderCell>
-                                <Table.HeaderCell>Notes</Table.HeaderCell>
+                                {/* <Table.HeaderCell>Notes</Table.HeaderCell> */}
                             </Table.Row>
                         </Table.Header>
                         {inventoryArray}
