@@ -49,7 +49,7 @@ function App() {
 const [searchItemized, setSearchItemized] = useState("");
 
 const itemizedFilterArray = inventory.filter((eachInv) => {
-  return eachInv.item_name.toLowerCase().includes(searchItemized.toLowerCase()) || eachInv.brand.toLowerCase().includes(searchItemized.toLowerCase()) || eachInv.retailer.retailer_name.toLowerCase().includes(searchItemized.toLowerCase())
+  return eachInv.item_name.toLowerCase().includes(searchItemized.toLowerCase()) || eachInv.brand.toLowerCase().includes(searchItemized.toLowerCase()) || eachInv.retailer.retailer_name.toLowerCase().includes(searchItemized.toLowerCase()) || eachInv.color.toLowerCase().includes(searchItemized.toLowerCase()) || eachInv.category.toLowerCase().includes(searchItemized.toLowerCase())
 });
   
 
