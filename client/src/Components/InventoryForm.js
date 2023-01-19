@@ -1,26 +1,12 @@
 import { Container, Divider, Form, Input, Segment, Select, Button } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 
-function InventoryForm({retailers, setInventory, errors, setErrors}) {
+function InventoryForm({newItem, setNewItem, retailers, setInventory, errors, setErrors, setRerender}) {
     
     let navigate = useNavigate();
 
-    const [newItem, setNewItem] = useState({
-        item_name: "",
-        brand: "",
-        color: "",
-        category: "",
-        current_stock: 0,
-        minimum_stock: 0,
-        unit_type: "",
-        notes: "",
-        retailer_id: 0,
-        item_url: "",
-        image_url: ""
-    });
-
-    console.log(newItem)
+    // console.log(newItem)
     
 
     const handleRetailers = retailers.map((r) => {
@@ -41,7 +27,8 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
         .then(res => {
             if(res.ok){
                 res.json().then(data => {
-                    setInventory(data);
+                    setInventory([data]);
+                    setRerender(data);
                     navigate("/inventory");
                 })
             } else {
@@ -71,7 +58,7 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
         setNewItem({
             ...newItem, [key]: value
         })
-        console.log(e.target.value)
+        // console.log(e.target.value)
     };
     
 
@@ -148,9 +135,30 @@ function InventoryForm({retailers, setInventory, errors, setErrors}) {
                                 onChange={handleChange}                                
                             >
                                 <option value=''>select</option>
-                                <option value='oz'>ounces (oz)</option>
+                                <option value='mm'>millimeters (mm)</option>
+                                <option value='cm'>centimeters (cm)</option>
+                                <option value='m'>meters (m)</option>       
+                                <option value='in'>inches (in)</option>
+                                <option value='ft'>feet (ft)</option>
+                                <option value='yd'>yards (yd)</option>
+                                <option value='ml'>millileters (ml)</option>
+                                <option value='L'>liters (L)</option>
+                                <option value='fl oz'>fluid ounces (fl oz)</option>
+                                <option value='pt'>pints (pt)</option>
                                 <option value='qt'>quarts (qt)</option>
                                 <option value='gal'>gallons (gal)</option>
+                                <option value='g'>grams (g)</option>
+                                <option value='kg'>kilograms (kg)</option>
+                                <option value='oz'>ounces (oz)</option>
+                                <option value='lb(s)'>pounds (lbs)</option>
+                                <option value='ton(s)'>tons (tons)</option>
+                                <option value='pack(s)'>packs</option>
+                                <option value='box(es)'>boxes</option>
+                                <option value='carton(s)'>cartons</option>
+                                <option value='container(s)'>containers</option>
+                                <option value='drum(s)'>drums</option>
+                                <option value='pallet(s)'>pallets/skids</option>
+                                <option value='crate(s)'>crates</option>
                             </Form.Field>
                         </Form.Group>
                         <Form.TextArea 

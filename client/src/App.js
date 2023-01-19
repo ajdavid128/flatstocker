@@ -24,6 +24,20 @@ function App() {
   const [inventory, setInventory] = useState([]);
   const [retailers, setRetailers] = useState([]);
   const [updateEmail, setUpdateEmail] = useState([]);
+  const [rerender, setRerender] = useState([]);
+  const [newItem, setNewItem] = useState({
+    item_name: "",
+    brand: "",
+    color: "",
+    category: "",
+    current_stock: 0,
+    minimum_stock: 0,
+    unit_type: "",
+    notes: "",
+    retailer_id: 0,
+    item_url: "",
+    image_url: ""
+});
   
 
   // STAY LOGGED IN:
@@ -49,7 +63,7 @@ function App() {
         .then(setInventory)
       }
     })
-  }, [currentUser])
+  }, [currentUser, newItem, rerender])
 
   // console.log(inventory)
 
@@ -100,6 +114,9 @@ function App() {
             <Route path="inventory/itemized" element={<ItemizedInventory inventory={inventory}/>}/>
             <Route path="form/new/inventory" element={
               <InventoryForm 
+                setRerender={setRerender}
+                newItem={newItem}
+                setNewItem={setNewItem}
                 setInventory={setInventory}
                 retailers={retailers}
                 errors={errors}

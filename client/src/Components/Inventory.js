@@ -6,6 +6,8 @@ function Inventory({inventory}) {
 
     // console.log(inventory);
 
+    // let thisIsAnArray = inventory && inventory
+
     const inventoryArray = inventory.map((eachInv) => {
         return <InventoryTable key={eachInv.id} {...eachInv}/>
     })
