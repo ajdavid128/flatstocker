@@ -121,11 +121,17 @@ function InventoryCard({id, item_name, image_url, current_stock, minimum_stock, 
                             <h3>Current Stock:</h3>
 
                         {/* PUT THE GODDAMN FORM HERE */}
-
+                        {/* PUT THE GODDAMN DROPDOWN HERE */}
 
 
                         </Card.Description>
-                        <Card.Description><h3>Minimum Stock:</h3> {minimum_stock} {unit_type}</Card.Description>
+                        <Card.Description>
+                            <h3>Minimum Stock:</h3> {minimum_stock} {unit_type}
+
+                        {/* PUT THE GODDAMN FORM HERE */}
+                        {/* PUT THE GODDAMN DROPDOWN HERE */}
+
+                        </Card.Description>
                         <Card.Description>
                         <h3>Retailer:</h3> <a href={item_url} target="_blank" rel="noopener noreferrer">{retailer.retailer_name}</a>
                         </Card.Description>
