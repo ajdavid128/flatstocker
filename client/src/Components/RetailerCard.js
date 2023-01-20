@@ -1,4 +1,4 @@
-import { Card, Label, Icon } from "semantic-ui-react";
+import { Card, Label, Icon, Form, Input } from "semantic-ui-react";
 import ModalDeleteRetailer from "./ModelDeleteRetailer";
 import { useState } from "react";
 
@@ -71,10 +71,10 @@ function RetailerCard({id, retailer_name, website_url, phone, email, errors, set
                     {/* THIS FUNCTIONALITY CONNOT BE PREFORMED WITH CURRENT MODEL ASSOCIATIONS BECAUSE ALL USERS WILL BE EFFECTED */}
 
 
-                    {/* <Label as="a" attached='bottom left' size="small" onClick={handleEditRetailer}>
+                    <Label as="a" attached='bottom left' size="small" onClick={handleEditRetailer}>
                         <Icon name="edit"/>Edit
                     </Label>
-                    <ModalDeleteRetailer handleDeleteRetailer={handleDeleteRetailer}/> */}
+                    <ModalDeleteRetailer handleDeleteRetailer={handleDeleteRetailer}/>
 
 
                     
@@ -97,18 +97,43 @@ function RetailerCard({id, retailer_name, website_url, phone, email, errors, set
                         <Icon name="check"/>Confirm
                     </Label>
                     <Card.Content>
-                        <Card.Header>{retailer_name}</Card.Header>
-
-                        {/* PUT FORM INPUT HERE */}
-
-                        <Card.Meta><a href={website_url} target="_blank" rel="noopener noreferrer">website</a></Card.Meta>
-                        {/* PUT FORM INPUT HERE */}
-
-                        <Card.Description>phone: {phone}</Card.Description>
-                        {/* PUT FORM INPUT HERE */}
-
-                        <Card.Description>email: {email}</Card.Description>
-                        {/* PUT FORM INPUT HERE */}
+                        <Form onSubmit={confirmedEdit}>
+                        
+                        <Form.Input 
+                                control={Input}
+                                label="Retailer Name:"
+                                type="text"
+                                name="retailer_name"
+                                value={editRetailer.retailer_name}
+                                onChange={handleChange}
+                            />
+                        <Form.Input 
+                            control={Input}
+                            label="Website URL:"
+                            type="url"
+                            name="website_url"
+                            value={editRetailer.website_url}
+                            onChange={handleChange}
+                        />
+                         <Form.Input 
+                            control={Input}
+                            label="Phone Number:"
+                            type="tel"
+                            name="phone" 
+                            value={editRetailer.phone}
+                            onChange={handleChange}
+                        />
+                        <small>Format: 234-567-8901</small>
+                        <br/><br/>
+                        <Form.Input 
+                            control={Input}
+                            label="Email:"
+                            type="email"
+                            name="email"
+                            value={editRetailer.email}
+                            onChange={handleChange}
+                        />
+                        </Form>
                     </Card.Content>
                 </Card>
             </Card.Group>
