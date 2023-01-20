@@ -2,14 +2,25 @@ import { useState } from "react";
 import { Card, Image, Icon, Divider, Label, Form, Input} from "semantic-ui-react";
 import ModalDeleteItem from "./ModalDeleteItem";
 
-function InventoryCard({id, item_name, image_url, current_stock, minimum_stock, notes, category, item_url, brand, color, unit_type, updated_date, retailer, setUpdateInventory, setRerender, inventory, errors, setErrors}) {
+function InventoryCard({id, item_name, image_url, current_stock, minimum_stock, notes, category, item_url, brand, color, unit_type, retailer_id, updated_date, retailer, setUpdateInventory, setRerender, inventory, errors, setErrors, retailers}) {
 
+    // console.log(retailer_id)
+   
     const [toggleEdit, setToggleEdit] = useState(false);
     const [editStockNote, setEditStockNote] = useState({
         current_stock: current_stock,
         unit_type: unit_type,
         minimum_stock: minimum_stock,
+        retailer_id: retailer_id,
         notes: notes
+    });
+
+    const handleRetailers = retailers.map((r) => {
+        return (
+            <option key={r.id} value={r.id} >
+                {r.retailer_name}
+            </option>
+        )
     });
 
     const handleEditItem = () => {
@@ -178,7 +189,18 @@ function InventoryCard({id, item_name, image_url, current_stock, minimum_stock, 
                                 </Form.Field>
                             </Card.Description>
                             <Card.Description>
-                            <h3>Retailer:</h3> <a href={item_url} target="_blank" rel="noopener noreferrer">{retailer.retailer_name}</a>
+                            <h3>Retailer:</h3> 
+                            <Form.Field                            
+                                control='select'
+                                label='Retailer:' 
+                                name="retailer_id" 
+                                value={editStockNote.retailer_id} 
+                                onChange={handleChange} 
+                                
+                            >
+                            <option value=''>select</option>
+                            {handleRetailers}
+                        </Form.Field>
                             </Card.Description>
                             <Card.Description>
                                 <h3>Notes:</h3>

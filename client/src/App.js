@@ -128,6 +128,7 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
             <Route path="inventory" element={<Inventory inventory={inventory}/>}/>
             <Route path="inventory/itemized" element={
               <ItemizedInventory
+                retailers={retailers}
                 errors={errors}
                 setErrors={setErrors} 
                 inventory={itemizedFilterArray}

@@ -1,12 +1,13 @@
 import { Card, Container, Input } from "semantic-ui-react";
 import InventoryCard from "./InventoryCard";
 
-function ItemizedInventory({inventory, setSearchItemized, setUpdateInventory, setRerender, errors, setErrors}) {
+function ItemizedInventory({inventory, setSearchItemized, setUpdateInventory, setRerender, errors, setErrors, retailers}) {
 
     const inventoryArray = inventory.map((eachInv) => {
         return <InventoryCard 
             key={eachInv.id} 
             {...eachInv} 
+            retailers={retailers}
             errors={errors}
             setErrors={setErrors}
             inventory={inventory}

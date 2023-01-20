@@ -98,41 +98,41 @@ function RetailerCard({id, retailer_name, website_url, phone, email, errors, set
                     </Label>
                     <Card.Content>
                         <Form onSubmit={confirmedEdit}>
-                        
-                        <Form.Input 
+                            
+                            <Form.Input 
+                                    control={Input}
+                                    label="Retailer Name:"
+                                    type="text"
+                                    name="retailer_name"
+                                    value={editRetailer.retailer_name}
+                                    onChange={handleChange}
+                                />
+                            <Form.Input 
                                 control={Input}
-                                label="Retailer Name:"
-                                type="text"
-                                name="retailer_name"
-                                value={editRetailer.retailer_name}
+                                label="Website URL:"
+                                type="url"
+                                name="website_url"
+                                value={editRetailer.website_url}
                                 onChange={handleChange}
                             />
-                        <Form.Input 
-                            control={Input}
-                            label="Website URL:"
-                            type="url"
-                            name="website_url"
-                            value={editRetailer.website_url}
-                            onChange={handleChange}
-                        />
-                         <Form.Input 
-                            control={Input}
-                            label="Phone Number:"
-                            type="tel"
-                            name="phone" 
-                            value={editRetailer.phone}
-                            onChange={handleChange}
-                        />
-                        <small>Format: 234-567-8901</small>
-                        <br/><br/>
-                        <Form.Input 
-                            control={Input}
-                            label="Email:"
-                            type="email"
-                            name="email"
-                            value={editRetailer.email}
-                            onChange={handleChange}
-                        />
+                            <Form.Input 
+                                control={Input}
+                                label="Phone Number:"
+                                type="tel"
+                                name="phone" 
+                                value={editRetailer.phone}
+                                onChange={handleChange}
+                            />
+                            <small>Format: 234-567-8901</small>
+                            <br/><br/>
+                            <Form.Input 
+                                control={Input}
+                                label="Email:"
+                                type="email"
+                                name="email"
+                                value={editRetailer.email}
+                                onChange={handleChange}
+                            />
                         </Form>
                     </Card.Content>
                 </Card>

@@ -4,11 +4,12 @@ import InventoryTable from "./InventoryTable";
 
 function Inventory({inventory}) {
 
-    // console.log(inventory);
+let inventoryCopy = [...inventory]
 
-    // let thisIsAnArray = inventory && inventory
+console.log(inventoryCopy)
+const { compare } = Intl.Collator('en-US');
 
-    const inventoryArray = inventory.map((eachInv) => {
+    const inventoryArray = inventoryCopy.sort((a, b) => compare(a.updated_at, b.updated_at)).reverse().map((eachInv) => {
         return <InventoryTable key={eachInv.id} {...eachInv}/>
     })
 
