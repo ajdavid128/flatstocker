@@ -14,10 +14,28 @@ class RetailersController < ApplicationController
         render json: retailer, status: :created
     end
 
+    def update
+        retailer = Retailer.find(params[:id])
+        retailer.update(update_params)
+        render json: retailer, status: :accepted
+    end
+
+    def destroy
+        retailer = Retailer.find(params[:id])
+        retailer.destroy
+        render json: retailer, status: :ok
+        #head :no_content
+    end
+
+
     private
 
     def retailer_params
         params.permit(:retailer_name, :website_url, :phone, :email)
+    end
+
+    def update_params
+        params.permit(:id, :retailer_name, :website_url, :phone, :email)
     end
     
 end
