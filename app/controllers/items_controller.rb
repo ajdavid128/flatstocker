@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
 
     def update
         item = Item.find(params[:id])
-        item.update(params[:current_stock])
+        item.update(update_item)
         render json: item, status: :accepted
     end
 
@@ -39,8 +39,8 @@ class ItemsController < ApplicationController
         params.permit(:item_name, :image_url, :current_stock, :minimum_stock, :notes, :category, :item_url, :brand, :color, :unit_type, :retailer_id, :user_id)
     end
 
-    # def update_current_stock
-    #     params.permit()
-    # end
+    def update_item
+        params.permit(:id, :item_name, :image_url, :current_stock, :minimum_stock, :notes, :category, :item_url, :brand, :color, :unit_type, :retailer_id, :user_id)
+    end
     
 end
