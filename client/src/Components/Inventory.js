@@ -6,7 +6,7 @@ function Inventory({inventory}) {
 
 let inventoryCopy = [...inventory]
 
-console.log(inventoryCopy)
+// console.log(inventoryCopy)
 const { compare } = Intl.Collator('en-US');
 
     const inventoryArray = inventoryCopy.sort((a, b) => compare(a.updated_at, b.updated_at)).reverse().map((eachInv) => {

@@ -71,10 +71,10 @@ function RetailerCard({id, retailer_name, website_url, phone, email, errors, set
                     {/* THIS FUNCTIONALITY CONNOT BE PREFORMED WITH CURRENT MODEL ASSOCIATIONS BECAUSE ALL USERS WILL BE EFFECTED */}
 
 
-                    <Label as="a" attached='bottom left' size="small" onClick={handleEditRetailer}>
+                    {/* <Label as="a" attached='bottom left' size="small" onClick={handleEditRetailer}>
                         <Icon name="edit"/>Edit
                     </Label>
-                    <ModalDeleteRetailer handleDeleteRetailer={handleDeleteRetailer}/>
+                    <ModalDeleteRetailer handleDeleteRetailer={handleDeleteRetailer}/> */}
 
 
                     
