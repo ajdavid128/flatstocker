@@ -69,12 +69,13 @@ function LoginForm({errors, setErrors, setCurrentUser}) {
                     value={user.password}
                     onChange={handleChange}
                 />
-                <div id="login-form-button">
-                    <Form.Button type="submit">Login</Form.Button>
-                </div>
                 <div>
                     {errors ? <p>{errors}</p> : null}
                 </div>
+                <div id="login-form-button">
+                    <Form.Button type="submit">Login</Form.Button>
+                </div>
+                
             </Form>
 
         </Container>

@@ -85,26 +85,29 @@ function InventoryCard({id, item_name, image_url, current_stock, minimum_stock, 
                 </Label>
                 <ModalDeleteItem handleDeleteItem={handleDeleteItem}/>
                 
-                <Card.Content>                    
-                    <Image src={image_url}  size="medium"/>                   
+                <Card.Content>    
+                    <div className="item-card-image">             
+                        <Image src={image_url}  size="small"/>  
+                    </div>                    
                     <Card.Content>
                     
                         <Card.Header>
                             <h2>{brand === "" ? item_name : `${brand}: ${item_name}`}</h2>
                         </Card.Header>
                         <Divider></Divider>
-
-                        <Card.Description size="large">
-                            <h3>Category:</h3> {category}
-                        </Card.Description>
-                       
-                        <Card.Description><h3>Color:</h3> {color}</Card.Description>
-                       
-                        <Card.Description><h3>Current Stock:</h3> {current_stock} {unit_type}</Card.Description>
-                        <Card.Description><h3>Minimum Stock:</h3> {minimum_stock} {unit_type}</Card.Description>
-                        <Card.Description>
-                        <h3>Retailer:</h3> <a href={item_url} target="_blank" rel="noopener noreferrer">{retailer.retailer_name}</a>
-                        </Card.Description>
+                        <div className="card-detail-content">
+                            <Card.Description size="large">
+                                <h3>Category:</h3> {category}
+                            </Card.Description>
+                        
+                            <Card.Description><h3>Color:</h3> {color}</Card.Description>
+                        
+                            <Card.Description><h3>Current Stock:</h3> {current_stock} {unit_type}</Card.Description>
+                            <Card.Description><h3>Minimum Stock:</h3> {minimum_stock} {unit_type}</Card.Description>
+                            <Card.Description>
+                            <h3>Retailer:</h3> <a href={item_url} target="_blank" rel="noopener noreferrer">{retailer.retailer_name}</a>
+                            </Card.Description>
+                        </div>
                         <Card.Description><h3>Notes:</h3> {notes}</Card.Description>
                     </Card.Content>    
                 </Card.Content>
@@ -122,98 +125,105 @@ function InventoryCard({id, item_name, image_url, current_stock, minimum_stock, 
                 <Label as="a" attached='bottom right' color="green" size="small" onClick={confirmedEdit}>
                      <Icon name="check"/>Confirm
                 </Label>
-                <Card.Content>                    
-                    <Image src={image_url}  size="medium"/>                   
+                <Card.Content>
+                    <div className="item-card-image">                     
+                        <Image src={image_url}  size="small"/>
+                    </div>                   
                     <Card.Content>
                         <Card.Header>
                             <h2>{brand === "" ? item_name : `${brand}: ${item_name}`}</h2>
                         </Card.Header>
                         <Divider></Divider>
-                        <Card.Description size="large">
-                            <h3>Category:</h3> {category}
-                        </Card.Description>
-                        <Card.Description><h3>Color:</h3> {color}</Card.Description>
 
-                        <Form onSubmit={confirmedEdit}>
-                            <Card.Description>
-                                <h3>Current Stock:</h3>
-                                <Form.Input
-                                    control={Input}
-                                    name="current_stock"
-                                    value={editStockNote.current_stock}
-                                    onChange={handleChange}
-                                />                       
+                        <div className="card-detail-content">
+
+                            <Card.Description size="large">
+                                <h3>Category:</h3> {category}
                             </Card.Description>
-                            <Card.Description>
-                                <h3>Minimum Stock:</h3> Currently: {minimum_stock} {unit_type}
-                                <Form.Input
-                                    control={Input}
-                                    name="minimum_stock"
-                                    value={editStockNote.minimum_stock}
-                                    onChange={handleChange}
-                                />
-                            <Form.Field                                 
-                                control='select' 
-                                label='Unit Type:'
-                                name="unit_type" 
-                                value={editStockNote.unit_type}
-                                onChange={handleChange}                                
-                            >
+                            <Card.Description><h3>Color:</h3> {color}</Card.Description>
+
+                            <Form onSubmit={confirmedEdit}>
+                                <Card.Description>
+                                    <h3>Current Stock:</h3>
+                                    <Form.Input
+                                        control={Input}
+                                        name="current_stock"
+                                        value={editStockNote.current_stock}
+                                        onChange={handleChange}
+                                    />                       
+                                </Card.Description>
+                                <Card.Description>
+                                    <h3>Minimum Stock:</h3> Currently: {minimum_stock} {unit_type}
+                                    <Form.Input
+                                        control={Input}
+                                        name="minimum_stock"
+                                        value={editStockNote.minimum_stock}
+                                        onChange={handleChange}
+                                    />
+                                <Form.Field                                 
+                                    control='select' 
+                                    label='Unit Type:'
+                                    name="unit_type" 
+                                    value={editStockNote.unit_type}
+                                    onChange={handleChange}                                
+                                >
+                                    <option value=''>select</option>
+                                    <option value='mm'>millimeters (mm)</option>
+                                    <option value='cm'>centimeters (cm)</option>
+                                    <option value='m'>meters (m)</option>       
+                                    <option value='in'>inches (in)</option>
+                                    <option value='ft'>feet (ft)</option>
+                                    <option value='yd'>yards (yd)</option>
+                                    <option value='ml'>millileters (ml)</option>
+                                    <option value='L'>liters (L)</option>
+                                    <option value='fl oz'>fluid ounces (fl oz)</option>
+                                    <option value='pt'>pints (pt)</option>
+                                    <option value='qt'>quarts (qt)</option>
+                                    <option value='gal'>gallons (gal)</option>
+                                    <option value='g'>grams (g)</option>
+                                    <option value='kg'>kilograms (kg)</option>
+                                    <option value='oz'>ounces (oz)</option>
+                                    <option value='lb(s)'>pounds (lbs)</option>
+                                    <option value='ton(s)'>tons (tons)</option>
+                                    <option value='pack(s)'>packs</option>
+                                    <option value='roll(s)'>rolls</option>
+                                    <option value='box(es)'>boxes</option>
+                                    <option value='case(s)'>cases</option>
+                                    <option value='carton(s)'>cartons</option>
+                                    <option value='container(s)'>containers</option>
+                                    <option value='drum(s)'>drums</option>
+                                    <option value='pallet(s)'>pallets/skids</option>
+                                    <option value='crate(s)'>crates</option>
+                                    </Form.Field>
+                                </Card.Description>
+                                <Card.Description>
+                                <h3>Retailer:</h3> 
+                                <Form.Field                            
+                                    control='select'
+                                    label='Retailer:' 
+                                    name="retailer_id" 
+                                    value={editStockNote.retailer_id} 
+                                    onChange={handleChange} 
+                                    
+                                >
                                 <option value=''>select</option>
-                                <option value='mm'>millimeters (mm)</option>
-                                <option value='cm'>centimeters (cm)</option>
-                                <option value='m'>meters (m)</option>       
-                                <option value='in'>inches (in)</option>
-                                <option value='ft'>feet (ft)</option>
-                                <option value='yd'>yards (yd)</option>
-                                <option value='ml'>millileters (ml)</option>
-                                <option value='L'>liters (L)</option>
-                                <option value='fl oz'>fluid ounces (fl oz)</option>
-                                <option value='pt'>pints (pt)</option>
-                                <option value='qt'>quarts (qt)</option>
-                                <option value='gal'>gallons (gal)</option>
-                                <option value='g'>grams (g)</option>
-                                <option value='kg'>kilograms (kg)</option>
-                                <option value='oz'>ounces (oz)</option>
-                                <option value='lb(s)'>pounds (lbs)</option>
-                                <option value='ton(s)'>tons (tons)</option>
-                                <option value='pack(s)'>packs</option>
-                                <option value='roll(s)'>rolls</option>
-                                <option value='box(es)'>boxes</option>
-                                <option value='case(s)'>cases</option>
-                                <option value='carton(s)'>cartons</option>
-                                <option value='container(s)'>containers</option>
-                                <option value='drum(s)'>drums</option>
-                                <option value='pallet(s)'>pallets/skids</option>
-                                <option value='crate(s)'>crates</option>
-                                </Form.Field>
-                            </Card.Description>
-                            <Card.Description>
-                            <h3>Retailer:</h3> 
-                            <Form.Field                            
-                                control='select'
-                                label='Retailer:' 
-                                name="retailer_id" 
-                                value={editStockNote.retailer_id} 
-                                onChange={handleChange} 
+                                {handleRetailers}
+                            </Form.Field>
+                                </Card.Description>
                                 
-                            >
-                            <option value=''>select</option>
-                            {handleRetailers}
-                        </Form.Field>
-                            </Card.Description>
-                            <Card.Description>
-                                <h3>Notes:</h3>
-                                <Form.TextArea 
-                                    type="text"
-                                    name="notes"
-                                    value={editStockNote.notes}
-                                    onChange={handleChange}
-                                />
-                            </Card.Description>
-                        </Form>
-
-                    </Card.Content>    
+                                <Card.Description>
+                                    <h3>Notes:</h3>
+                                    <Form.TextArea 
+                                        type="text"
+                                        name="notes"
+                                        value={editStockNote.notes}
+                                        onChange={handleChange}
+                                    />
+                                </Card.Description>
+                            </Form>
+                        </div>
+                    </Card.Content> 
+      
                 </Card.Content>
                 <Card.Content extra>                
                 {errors? errors.map(e => { return <p key={e}>{e}</p>}) : null}             

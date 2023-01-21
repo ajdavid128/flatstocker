@@ -15,6 +15,7 @@ import UserPreferences from './Components/UserPreferences';
 import LoginForm from './Components/LoginForm';
 import NotFound from './Components/NotFound';
 import PleaseLogin from './Components/PleaseLogin';
+import AboutGuest from './Components/AboutGuest';
 
 
 function App() {
@@ -114,6 +115,7 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
                 setErrors={setErrors}
               />
             }/>
+          <Route path="info" element={<AboutGuest />}/>
         {currentUser && currentUser ? <>
           <Route path="/" element={
             <NavBar 

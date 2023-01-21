@@ -127,6 +127,16 @@ code {
   grid-gap: 20px; */
 }
 
+.item-card-image {
+  display: flex;
+  justify-content: center;
+  margin-right: 0px;
+}
+
+.card-detail-content {
+  columns: 30px 2;
+}
+
 
 /* -----------------------RETAILERS: FORM----------------------- */
 

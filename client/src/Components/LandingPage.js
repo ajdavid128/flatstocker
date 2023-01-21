@@ -27,7 +27,7 @@ function LandingPage({errors, setErrors, currentUser, setCurrentUser}) {
                             </div>
                             <div className="sign-about-buttons">
                                 
-                                <Link to="/about">
+                                <Link to="/info">
                                     <Button>About Page</Button>
                                 </Link>
                             </div>
