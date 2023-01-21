@@ -50,6 +50,7 @@ function LoginForm({errors, setErrors, setCurrentUser}) {
 
     return (
         <Container>
+            <h1 id="login-title" >Please Login</h1>
             <Form onSubmit={handleLogin}>
                 <Form.Field 
                     control={Input}
@@ -68,7 +69,9 @@ function LoginForm({errors, setErrors, setCurrentUser}) {
                     value={user.password}
                     onChange={handleChange}
                 />
-                <Form.Button type="submit">Login</Form.Button>
+                <div id="login-form-button">
+                    <Form.Button type="submit">Login</Form.Button>
+                </div>
                 <div>
                     {errors ? <p>{errors}</p> : null}
                 </div>

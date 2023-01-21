@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Button, Container } from "semantic-ui-react";
+import { Button, Container, Segment } from "semantic-ui-react";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 
@@ -7,29 +7,38 @@ import SignupForm from "./SignupForm";
 function LandingPage({errors, setErrors, currentUser, setCurrentUser}) {
     return (
         <div>
-            <h1>LANDING PAGE</h1>
-            <h1>LOGIN</h1>
-            <Container>
-                <LoginForm 
-                    setCurrentUser={setCurrentUser}
-                    errors={errors}
-                    setErrors={setErrors}
-                />
-            </Container>
+            <h1 id="FLATSTOCKER">FlatStocker</h1>
+            
+            <div >
+                <div id="land-container">
+                    <Segment id="land-seg">
+                        <LoginForm 
+                            setCurrentUser={setCurrentUser}
+                            errors={errors}
+                            setErrors={setErrors}
+                        />
 
-            <h1>SIGN UP</h1>
-            <Container>
-                <Link to="/signup">
-                    <Button>Signup!</Button>
-                </Link>
-            </Container>
+                        <div id="sign-up-about">
+                            <div className="sign-about-buttons">
+                                
+                                <Link to="/signup">
+                                    <Button>Signup!</Button>
+                                </Link>
+                            </div>
+                            <div className="sign-about-buttons">
+                                
+                                <Link to="/about">
+                                    <Button>About Page</Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </Segment>
+                </div>
+            </div>
 
-            <h1>About</h1>
-            <Container>
-                <Link to="/about">
-                    <Button>About Flatstocker</Button>
-                </Link>
-            </Container>
+            
+
+            
         </div>
     )
 };
