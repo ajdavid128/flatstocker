@@ -4,6 +4,7 @@ import { useState } from "react";
 
 function RetailerCard({id, retailer_name, website_url, phone, email, errors, setErrors, setUpdateRetailer, setRerender, retailers}) {
 
+
     const [toggleEdit, setToggleEdit] = useState(false);
     const [editRetailer, setEditRetailer] = useState({
         retailer_name: retailer_name,
@@ -88,6 +89,7 @@ function RetailerCard({id, retailer_name, website_url, phone, email, errors, set
             </Card.Group>
 
             :
+
             <Card.Group>
                 <Card>
                     <Label as="a" attached='bottom left' size="small" onClick={handleEditRetailer}>
