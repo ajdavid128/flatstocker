@@ -91,8 +91,12 @@ code {
 
 /* -----------------------DASHBOARD----------------------- */
 #dash {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+}
+
+#item-retail-count {
+
 }
 
 /* -----------------------INVENTORY: TABLE----------------------- */
