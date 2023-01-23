@@ -19,7 +19,7 @@ const { compare } = Intl.Collator('en-US');
             <h1>INVENTORY PAGE</h1>
             
                 <Container>
-                    <Table celled selectable>
+                    <Table celled selectable collapsing>
                         <Table.Header>
                             <Table.Row>
                                 <Table.HeaderCell>Item</Table.HeaderCell>

@@ -16,18 +16,17 @@ function Dashboard({currentUser, inventory}) {
     let retailerCount = currentUser.unique_retailers.length;
 
    
-
-
     return (
         <div id="dash">
-            <h1>DASHBOARD PAGE</h1>
             <div>
-                Welcome back, {currentUser.name}!
+                <h1>Welcome back, {currentUser.name}!</h1>
+            </div>
+            <div>
                 <h4>Current Date/Time: {date}</h4>
             </div>
             <div>
                 <Segment>Current low-stock/out-of-stock
-                    <Table celled selectable>
+                    <Table celled selectable collapsing color="red" inverted>
                     <Table.Header>
                             <Table.Row>
                                 <Table.HeaderCell>Item</Table.HeaderCell>
