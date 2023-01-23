@@ -126,7 +126,11 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
             />
           }>
             <Route path="about" element={<About/>}/>
-            <Route path="dashboard" element={<Dashboard/>}/>
+            <Route path="dashboard" element={
+              <Dashboard
+                currentUser={currentUser}
+              />
+            }/>
             <Route path="inventory" element={<Inventory inventory={inventory}/>}/>
             <Route path="inventory/itemized" element={
               <ItemizedInventory
@@ -137,7 +141,8 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
                 setSearchItemized={setSearchItemized}
                 setUpdateInventory={setUpdateInventory}
                 setRerender={setRerender}
-            />}/>
+              />
+            }/>
             <Route path="form/new/inventory" element={
               <InventoryForm 
                 currentUser={currentUser}
@@ -148,7 +153,8 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
                 retailers={retailers}
                 errors={errors}
                 setErrors={setErrors}
-              />}/>
+              />
+            }/>
             <Route path="retailers" element={
               <Retailers
                 retailers={retailers}
@@ -157,7 +163,8 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
                 setRerender={setRerender}
                 errors={errors}
                 setErrors={setErrors}
-              />}/>
+              />
+            }/>
             <Route path="form/new/retailer" element={
               <RetailerForm
                 setRerender={setRerender}
@@ -166,7 +173,8 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
                 setNewRetailer={setNewRetailer}
                 errors={errors}
                 setErrors={setErrors}
-              />}/>
+              />
+            }/>
             <Route path="login" element={<LoginForm/>}/>
             <Route path="preferences" element={
               <UserPreferences 
@@ -176,7 +184,8 @@ const itemizedFilterArray = inventory.filter((eachInv) => {
                 setUpdateEmail={setUpdateEmail}
                 errors={errors}
                 setErrors={setErrors}
-              />}/>
+              />
+            }/>
             <Route path="*" element={<NotFound/>}/> 
           </Route>
           </> : 
